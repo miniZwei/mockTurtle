@@ -1,0 +1,7 @@
+
+
+body{
+    background-image: url("{% static 'images/mp_cover.png' %}");
+    background-size: cover;
+    background-color: black;
+}
