@@ -1,0 +1,132 @@
+body {
+    background-image: url('/static/images/quiz_cover2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    background-size: 100% 100%;
+}
+
+.quiz{
+    border-radius: 3%;
+    position: absolute;
+    background-color: #3A3ADB;
+    color: white;
+    width: 55%;
+    height: 35%;
+    top: 200px;
+    left: 21%;
+    margin: auto;
+}
+
+.quizTitle{
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+    margin-left: 5%;
+    height: 25%;
+}
+
+.quizTitle > label {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.cont {
+    display: inline-block;
+    width: 50%;
+    margin: auto;
+    margin-left: 5%;
+    height: 100%;
+}
+
+.quizImg{
+    background-image: url('/static/images/sample.png');
+    display: inline-block;
+    margin-left: 3%;
+    margin-right: 5%;
+    margin-top: 3%;
+    width: 30%;
+    height: 80%;
+}
+
+.quizText{
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.title {
+    color: white;
+    font-size: 400%;
+    font-weight: bolder;
+    margin-right: 2%;
+    margin-top: 5%;
+    text-align: center;
+}
+
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button {
+  background: none;
+  border: 3px solid #202075;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 2em 6em;
+  position: relative;
+  text-transform: uppercase;
+}
+
+button::before,
+button::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+button:hover {
+  color: #202075;
+}
+
+.btn-2::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+  }
+  
+  .btn-2:hover:after {
+    width: 100%;
+  }
+
+@media (max-width: 800px) {
+    .quizImg {
+      display: none;
+    }
+    .quizTitle > label {
+        font-size: 75%;
+        font-weight: bold;
+    }
+    .quiz{
+        text-align: center;
+    }
+    .quizTitle{
+        width: 90%;
+    }
+  }
