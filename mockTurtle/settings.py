@@ -123,12 +123,3 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mockTurtle', 
-        'USER': 'zwei', 
-        'PASSWORD': 'password',
-        'PORT': '3306',
-    }
-}
