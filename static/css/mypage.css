@@ -1,7 +1,22 @@
 
 
 body{
-    background: url('/static/images/mp_cover.png') no-repeat;
+    background-image: url("images/mp_cover.png");
     background-size: cover;
-    background-color: black;
+}
+
+#mpMenu{
+    padding-right: 1450px;
+    border: none;
+    cursor: pointer;
+    top: 0;
+}
+
+#mpIcon {
+    padding-right: 370px;
+    border-bottom: 100px;
+}
+
+#userName{
+    padding-bottom: 50;
 }

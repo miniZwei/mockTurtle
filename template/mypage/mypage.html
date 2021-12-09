@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css'%}" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Zwei Moon">
-    <meta name="description"
-        content="check your personal information here, including your nickname, level, achievements and etc.. User also can chage his/her own information here.">
+<meta name="description" content="check your personal information here, including your nickname, level, achievements and etc.. User also can chage his/her own information here.">
     <title>MY PAGE</title>
 
-    <style>
-        body {
-            background-image: url("{% static 'images/mp_cover.png' %}");
-            background-size: cover;
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css'%}" />
 
-        }
+<style>
+
+    body{
+        background-image: url("{% static 'images/mp_cover.png' %}");
+        background-size: cover;
+    }
+
     </style>
 
 </head>
 
+
 <body>
+ <div>
+   <a id="mpMenu" > <img src="{%static 'images/menu_icon.png'%}" width="70px" height="70px"></a>
+</div>
+
+<div id="mpTitle" >
+ MY PAGE 
+</div>
 
 
+   <div class="" >
+    <img src="{%static 'images/mp_icon.png'%}" width="120px" height="120px" id="mpIcon">
+</div>
 
-    testing!!
+
+<div id="userName">
+    <p id="userLevel">LV. 1</p>
+    <p id="userNick"> 김익명 </p>
+</div>
+
+<div id="achieve_text">
+    업적
+</div>
+<div id="ibase">
+    <img src="{%static 'images/mp_ibase.png'%}" width="340px" height="140px">
+</div>
+
 
 
 </body>
-
 </html>
