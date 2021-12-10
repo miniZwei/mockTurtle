@@ -3,6 +3,7 @@
 body{
     background-image: url("images/mp_cover.png");
     background-size: fit;
+    position: relative;
 }
 
 #mpMenu{
@@ -13,18 +14,27 @@ body{
 }
 
 #mpIcon {
-    position: absolute;
-    right: 52%;
-    top: 32%;
+    position: relative;
+    right: 10%;
+    padding-top: 4%;
+    left: 0;
+    margin-right: 2%;
 }
 
 #userName{
-    position: absolute;
-    top: 34.7%;
-    right: 45%;
+    position: relative;
+    display: inline-block;
     text-align: left;
+    right: 3%;
+    bottom: 15%;
 }
 
+.container{
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    height: 30%;
+}
 
 #legacyTitle{
     position: absolute;
