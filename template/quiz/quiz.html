@@ -5,6 +5,7 @@
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/quiz.css'%}" />
+    <script src="{% static 'js/quiz.js' %}"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,20 +13,44 @@
 </head>
 
 <body>
+    <a href='/''><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a>
     <div class="title"><label>Quiz01</label></div>
     <section class="quiz">
         <div class="quizImg"></div>
         <div class="cont">
-            <div class="quizTitle"><label>The Accident</label></div>
-            <div class="quizText"><label>A car driver causes an an accident when he crashes into a bike, as he was
+            <div id='quizTitle' class="quizTitle"><label>The Accident</label></div>
+            <div id='quizText' class="quizText" style="display: inline-block;"><label>A car driver causes an an accident when he crashes into a bike,
+                    as he was
                     making an unexpected turm at a crossroad.
                     When the policemen arrive, another man gets arrested. The one who was driving is carried
                     home.</label></div>
+            <div id='quizAnswer' class="quizText" style="display: none;"><label>,ekib a otni sehsarc eh nehw tnedicca na
+                    na sesuac revird rac A saw eh sa daorssorc a ta mrut detcepxenu na gnikam deirrac si gnivird saw ohw
+                    eno ehT .detserra steg nam rehtona ,evirra nemecilop eht nehW emoh</label></div>
         </div>
         <div class="quizContent"></div>
-        <button class="btn-2">정 답</button><button class="btn-2">힌 트</button>
+        <br /><br />
+        <button class="btn-2" id='foo' onclick="solution()">정 답</button><button id="hint" onclick="hintOn()" class="btn-2">힌 트</button>
     </section>
-    
+    <ul id="hintUl" style="display: none;">
+        <li id="hint1"><a href='javascript:hint1()'>1번 힌트</a></li>
+        <li>2번 힌트</li>
+        <li>3번 힌트</li>
+        <li>4번 힌트</li>
+        <br /><br /><br />
+        <li><a href='javascript:goback()'>돌아가기</a></li>
+    </ul>
+
+    <div id="modal" class="modal">
+        <div class="modal_body">
+            <div class="topbar"></div>
+            <div class='hintTitle'>힌트가 적합하신가요?</div>
+            <div class="hintContent">Yes</div>
+            <br /><br /><br /><br />
+            <a href='javascript:goback()'><span class='goback'>돌아가기</span></a>
+        </div>
+    </div>
+
 </body>
 
 </html>

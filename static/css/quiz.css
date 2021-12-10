@@ -9,10 +9,15 @@ body {
     background-size: 100% 100%;
 }
 
+a:link { color: white; text-decoration: none;}
+a:visited { color: white; text-decoration: none;}
+a:hover { color: #3A3ADB; text-decoration: none;}
+
 .quiz{
     border-radius: 3%;
     position: absolute;
     background-color: #3A3ADB;
+    display: inline-block;
     color: white;
     width: 55%;
     height: 35%;
@@ -25,8 +30,11 @@ body {
     display: inline-block;
     text-align: center;
     width: 50%;
-    margin-left: 5%;
     height: 25%;
+    vertical-align: middle;
+    position: relative;
+    top: 18%;
+    text-align: left;
 }
 
 .quizTitle > label {
@@ -40,24 +48,28 @@ body {
     margin: auto;
     margin-left: 5%;
     height: 100%;
+    vertical-align: middle;
 }
 
 .quizImg{
     background-image: url('/static/images/sample.png');
     display: inline-block;
     margin-left: 3%;
-    margin-right: 5%;
-    margin-top: 3%;
+    margin-right: 3%;
     width: 30%;
     height: 80%;
+    vertical-align: middle;
 }
 
 .quizText{
     display: inline-block;
+    position: relative;
     width: 100%;
     margin: auto;
-    padding-top: 5%;
+    padding-top: 4%;
     padding-bottom: 5%;
+    vertical-align: middle;
+    top: 18%;
 }
 
 .title {
@@ -67,6 +79,30 @@ body {
     margin-right: 2%;
     margin-top: 5%;
     text-align: center;
+}
+
+.logo {
+  z-index: 2;
+  display: inline;
+  position: fixed;
+  left: 2%;
+  top: 3%;
+}
+
+#hintUl {
+  color: white;
+  position: absolute;
+  right: 17%;
+  top: 25%;
+}
+
+#hintUl li {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.modalSec {
+ 
 }
 
 button,
@@ -115,6 +151,46 @@ button:hover {
     width: 100%;
   }
 
+  .modal {
+    border: black solid 2px;
+    position: absolute;
+    left: 25%;
+    height: 30%;
+    text-align: center;
+    top: 30;
+    vertical-align: middle;
+    width: 50%; 
+    height: 30%; 
+    display: none; 
+    background-color: white; 
+    font-weight: bold;
+  }
+
+.hintTitle {
+  position: relative;
+  margin-top: 5%;
+  font-size: 200%;
+  display: inline-block;
+}
+
+.hintContent{
+  position: relative;
+  font-size: 250%;
+  margin-left: 3%;
+  display: inline-block;
+}
+
+.goback{
+  border: gray solid 1px;
+  background-color: gray;
+  padding: 2%;
+}
+
+  .topbar {
+    background-color: gray;
+    height: 50px;
+  }
+
 @media (max-width: 800px) {
     .quizImg {
       display: none;
@@ -130,3 +206,13 @@ button:hover {
         width: 90%;
     }
   }
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
