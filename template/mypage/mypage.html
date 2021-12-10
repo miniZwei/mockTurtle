@@ -9,7 +9,7 @@
 <meta name="description" content="check your personal information here, including your nickname, level, achievements and etc.. User also can chage his/her own information here.">
     <title>MY PAGE</title>
 
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css'%}">
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css'%}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css'%}" />
 
@@ -17,7 +17,12 @@
 
     body{
         background-image: url("{% static 'images/mp_cover.png' %}");
-        background-size: cover;
+        background-repeat: no-repeat; 
+        background-position: center;
+        width: 100vw;
+    height: 100vh;
+    background-size: 100% 100%;
+
     }
 
     </style>
@@ -35,24 +40,30 @@
 </div>
 
 
-   <div class="" >
-    <img src="{%static 'images/mp_icon.png'%}" width="120px" height="120px" id="mpIcon">
-</div>
-
+    <img src="{%static 'images/mp_icon.png'%}" width="130px" height="130px" id="mpIcon">
 
 <div id="userName">
-    <p id="userLevel">LV. 1</p>
-    <p id="userNick"> 김익명 </p>
+    <p id="userLevel">LV. 1 </p>
+    <p id="userNick"> 나혀니</p>
 </div>
 
-<div id="achieve_text">
-    업적
+<div id="legacyTitle">업적</div>
+<img src="{%static 'images/mp_ibase.png'%}" width="340px" height="140px" id="legacy">
+
+<img src="{%static 'images/leg_tw.png'%}" width="90px" height="93px" id="lgtweet" title="짹짹!">
+<img src="{%static 'images/leg_rev.png'%}" width="90px" height="93px" id="lgrev" title="리벤저">
+<img src="{%static 'images/leg_holmes.png'%}" width="90px" height="93px" id="lghm" title="명탐정 탄생">
+
+
+<img src="{%static 'images/leg_unlocked.png'%}" width="280px" height="100px" id="legUnlocked" title="아직 열리지 않은 업적입니다!" >
+<img src="{%static 'images/mp_ibase.png'%}" width="340px" height="140px" id="legacyUn">
+
+<hr>
+
+<div id="otherpart">
+<img src="{%static 'images/etc_play.png'%}" width="150px" height="100px" id="etcplay" title="최근 플레이">
+<img src="{%static 'images/etc_bookmark.png'%}" width="150px" height="100px" id="etcbm" title="북마크한 게임">
+<img src="{%static 'images/etc_star.png'%}" width="150px" height="100px" id="etcstar" title="별점">
 </div>
-<div id="ibase">
-    <img src="{%static 'images/mp_ibase.png'%}" width="340px" height="140px">
-</div>
-
-
-
 </body>
 </html>

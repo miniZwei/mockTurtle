@@ -2,21 +2,82 @@
 
 body{
     background-image: url("images/mp_cover.png");
-    background-size: cover;
+    background-size: fit;
 }
 
 #mpMenu{
-    padding-right: 1450px;
+    padding-right: 1470px;
     border: none;
     cursor: pointer;
     top: 0;
 }
 
 #mpIcon {
-    padding-right: 370px;
-    border-bottom: 100px;
+    position: absolute;
+    right: 52%;
+    top: 32%;
 }
 
 #userName{
-    padding-bottom: 50;
+    position: absolute;
+    top: 34.7%;
+    right: 45%;
+    text-align: left;
+}
+
+
+#legacyTitle{
+    position: absolute;
+    top: 53%;
+    left: 47%;
+}
+#legacy{
+    position: absolute;
+    left: 26%;
+    top: 61%;
+    z-index: 1;
+}
+
+#legacyUn{
+    position: absolute;
+    top: 61%;
+    right: 28%;
+    z-index: 1;
+}
+
+#legUnlocked{
+    position: absolute;
+    top: 64%;
+    right: 30%;
+    z-index: 2;
+}
+
+#lgtweet{
+    position: absolute;
+    top: 64.3%;
+    left: 28%;
+    z-index: 2; 
+}
+#lgrev{
+    position: absolute;
+    top: 64.3%;
+    left: 34.2%;
+    z-index: 2; 
+}
+#lghm{
+    position: absolute;
+    top: 64.3%;
+    left: 40.4%;
+    z-index: 2; 
+}
+
+#otherpart{
+    position: absolute;
+    bottom: 1%;
+    left: 33.6%;
+}
+
+hr{
+    position: absolute;
+    bottom: 40%;
 }
