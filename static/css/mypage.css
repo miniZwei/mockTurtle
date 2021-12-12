@@ -26,9 +26,12 @@ body{
     display: inline-block;
     text-align: left;
     right: 3%;
+    top: 15%;
 }
 
-
+#userNick{
+    padding-top: 10%;
+}
 
 .container{
     position: relative;
