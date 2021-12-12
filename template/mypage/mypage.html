@@ -9,9 +9,13 @@
 <meta name="description" content="check your personal information here, including your nickname, level, achievements and etc.. User also can chage his/her own information here.">
     <title>MY PAGE</title>
 
-<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css'%}">
+<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css'%}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css'%}" />
+<!--owl carousel plugin-->
+<link rel="stylesheet" href="{% static 'css/owlcarousel/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owlcarousel/owl.theme.default.min.css' %}">
+
 
 <style>
 
@@ -31,6 +35,12 @@
 
 
 <body>
+
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.mousewheel.js' %}"></script>
+
+
  <div>
    <a id="mpMenu" > <img src="{%static 'images/menu_icon.png'%}" width="70px" height="70px"></a>
 </div>
@@ -44,21 +54,44 @@
 
 <div id="userName">
     <p id="userLevel">LV. 1 </p>
-    <p id="userNick"> 나혀니</p>
+    <p id="userNick"> nachthexe</p>
 </div>
 </div>
 <div id="legacyTitle">업적</div>
-<img src="{%static 'images/mp_ibase.png'%}" width="340px" height="140px" id="legacy">
-
-<img src="{%static 'images/leg_tw.png'%}" width="90px" height="93px" id="lgtweet" title="짹짹!">
-<img src="{%static 'images/leg_rev.png'%}" width="90px" height="93px" id="lgrev" title="리벤저">
-<img src="{%static 'images/leg_holmes.png'%}" width="90px" height="93px" id="lghm" title="명탐정 탄생">
 
 
-<img src="{%static 'images/leg_unlocked.png'%}" width="280px" height="100px" id="legUnlocked" title="아직 열리지 않은 업적입니다!" >
-<img src="{%static 'images/mp_ibase.png'%}" width="340px" height="140px" id="legacyUn">
+<script>
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel();
 
-<hr>
+
+    owl.owlCarousel({
+        items:4,                 // 한번에 보여줄 아이템 수
+        loop:true,               // 반복여부
+        margin:10              // 오른쪽 간격
+
+    });    
+  });
+  
+  </script>
+
+<div class="row">
+	<div class="col-sm-3">
+		<div class="slider">
+<div class="owl-carousel owl-theme">
+    <div class="item"> <img src="{%static 'images/leg_tw.png'%}"  title="짹짹, 첫 SNS 공유!"></div>
+    <div class="item"> <img src="{%static 'images/leg_rev.png'%}" title="리벤저"> </div>
+    <div class="item"> <img src="{%static 'images/leg_holmes.png'%}" title="명탐정 탄생"> </div>
+    <div class="item"> <img src="{%static 'images/leg_selfie.png'%}" title="첫 프로필 사진 등록"> </div>
+    <div class="item"> <img src="{%static 'images/leg_crown.png'%}"  title="모든 문제를 풀었습니다!"></div>
+    <div class="item"> <img src="{%static 'images/leg_un.png'%}"  title="아직 해제되지 않은 업적입니다"> </div>
+    <div class="item">  <img src="{%static 'images/leg_un.png'%}"  title="아직 해제되지 않은 업적입니다"></div>
+    <div class="item">  <img src="{%static 'images/leg_un.png'%}"  title="아직 해제되지 않은 업적입니다"></div>
+    <div class="item">  <img src="{%static 'images/leg_un.png'%}" title="아직 해제되지 않은 업적입니다"></div>
+  </div>
+</div>
+	</div>
+
 
 <div id="otherpart">
 <img src="{%static 'images/etc_play.png'%}" width="150px" height="100px" id="etcplay" title="최근 플레이">
