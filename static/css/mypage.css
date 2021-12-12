@@ -26,8 +26,9 @@ body{
     display: inline-block;
     text-align: left;
     right: 3%;
-    bottom: 15%;
 }
+
+
 
 .container{
     position: relative;
@@ -56,8 +57,6 @@ body{
     left: 33.6%;
 }
 
-
-.row{
-    position: absolute;
-    margin: 0 auto;
+.center{
+    left: 36.5%;
 }
