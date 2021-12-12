@@ -41,45 +41,14 @@ body{
     top: 53%;
     left: 47%;
 }
-#legacy{
-    position: absolute;
-    left: 26%;
-    top: 61%;
-    z-index: 1;
-}
-
-#legacyUn{
-    position: absolute;
-    top: 61%;
-    right: 28%;
-    z-index: 1;
-}
 
 #legUnlocked{
     position: absolute;
     top: 64%;
     right: 30%;
-    z-index: 2;
+
 }
 
-#lgtweet{
-    position: absolute;
-    top: 64.3%;
-    left: 28%;
-    z-index: 2; 
-}
-#lgrev{
-    position: absolute;
-    top: 64.3%;
-    left: 34.2%;
-    z-index: 2; 
-}
-#lghm{
-    position: absolute;
-    top: 64.3%;
-    left: 40.4%;
-    z-index: 2; 
-}
 
 #otherpart{
     position: absolute;
@@ -87,7 +56,8 @@ body{
     left: 33.6%;
 }
 
-hr{
+
+.row{
     position: absolute;
-    bottom: 40%;
+    margin: 0 auto;
 }
