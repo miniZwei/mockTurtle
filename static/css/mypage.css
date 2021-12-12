@@ -6,11 +6,12 @@ body{
     position: relative;
 }
 
-#mpMenu{
-    padding-right: 1470px;
+#logo{
+    padding-right: 1420px;
     border: none;
     cursor: pointer;
-    top: 0;
+    padding-top: 20px;
+
 }
 
 #mpIcon {
