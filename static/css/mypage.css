@@ -14,10 +14,19 @@ body{
 
 }
 
+
+#legacyTitle{
+    font-family: 'Black Han Sans';
+     font-size: 26pt;
+     color: black;
+}
+
+
 #mpIcon {
     position: relative;
     right: 10%;
     padding-top: 4%;
+    padding-bottom: 30px;
     left: 0;
     margin-right: 2%;
 }
@@ -27,7 +36,7 @@ body{
     display: inline-block;
     text-align: left;
     right: 3%;
-    top: 15%;
+    top: 13%;
 }
 
 #userNick{
@@ -39,11 +48,12 @@ body{
     display: inline-block;
     width: 50%;
     height: 30%;
+    padding-bottom: 50px;
 }
 
 #legacyTitle{
     position: absolute;
-    top: 53%;
+    top: 50%;
     left: 47%;
 }
 

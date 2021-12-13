@@ -1,0 +1,66 @@
+{% extends 'index.html' %} 
+{% block content %} 
+
+
+<h4>🤱 WE NEED TO TALK ABOUT NISI 🏹</h4>
+<table class="table table-striped">
+<tr>
+    <th>번호</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>조회수</th>
+</tr>
+{% for board in boardTable %} 
+<tr>
+    <td>{{ board.id }}</td>
+    <td>
+        {% if user.username != "" %}
+        <a href="{% url 'BD:D' board.id%}">{{board.제목 }}</a>
+        {% else %}
+        <a href="{% url 'login' %}">{{board.제목 }}</a>
+        {%endif%}
+    </td>
+    <td>{{ board.작성자 }}</td>
+    <td>{{ board.조회수 }}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+{%if user.is_active %}
+<input type="button" onclick=document.location.href='{% url "BD:A" %}' value="글쓰기"><br>
+<hr>
+
+{% if boardTable.has_previous %}
+<input type="button" value="이전" onclick=document.location.href="{% url 'BD:I' boardTable.previous_page_number %}"> 
+{%else%}
+<input type="button" value="이전" disabled> 
+{%endif%}
+
+{% for i in boardTable.paginator.page_range %}
+<a href="{% url 'BD:I' i %}">{{ i }}</a>
+{%endfor%}
+
+{% if boardTable.has_next %}
+<input type="button" value="다음" onclick=document.location.href="{% url 'BD:I' boardTable.next_page_number %}"> 
+{%else%}
+<input type="button" value="다음" disabled> 
+{%endif%}
+
+
+
+{% else %}
+<hr>
+비회원은 글쓰기 권한이 없습니다.
+<br>회원가입 또는 로그인하세요!
+<hr>
+{%endif%}
+
+{% block menu_active %}
+<script>
+    document.getElementById("board").className="active";
+</script>
+{% endblock %}
+
+
+{% endblock %}

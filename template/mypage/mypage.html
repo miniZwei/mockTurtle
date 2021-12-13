@@ -42,6 +42,7 @@
         }
 
 
+
     </style>
 
 </head>
@@ -49,21 +50,44 @@
 
 <body>
 
-
-    <div id="logo">
-        <a href='/'><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a>
-    </div>
-
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">🍽 바다거북스프 🍽</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="/">메인</a></li>
+              <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
+              <li><a href="{% url 'MP:myP' %}">마이페이지</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_active %}
+                <li id="myinfo"><a href="/account/myinfo"><span class="glyphicon glyphicon-user"></span> {{ user }}</a></li>
+                <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> LOGOUT</a></li>
+                {% else %}
+              <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
+              <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
 
     <div id="mpTitle">
         MY PAGE
     </div>
 
     <div class="container">
-        <img src="{%static 'images/mp_icon.png'%}" width="130px" height="150px" id="mpIcon">
+        <img src="{%static 'images/mp_icon.png'%}" width="120px" height="170px" id="mpIcon">
 
         <div id="userName">
-            <p id="userLevel">LV. 1 </p>
+            <p id="userLevel"  style="padding-bottom: 20px">LV. 1 </p>
             <p id="userNick"> 닉네임</p>
         </div>
     </div>
@@ -171,5 +195,11 @@
 
 
 </body>
+
+{% block menu_active %}
+<script>
+    document.getElementById("mypage").className="active";
+</script>
+{% endblock %}
 
 </html>

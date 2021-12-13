@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>== 계정등록 ==</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css'%}">
+
+    <style>
+
+         .input-group{
+             width: 20%;
+             padding: 5px;
+         }
+        
+         .input-group-size{
+             padding: 5px;
+         }
+        
+         .input-group-size input, button{
+             width: 100px;
+         }
+        
+         .input-group-addon{
+             width: 40%;
+         }
+          </style>
+         
+    <script>
+        function pwCheck(){
+            pw1 = frm.password.value;
+            pw2 = frm.pwchk.value;
+            if (pw1 == pw2){
+                alert('암호가 일치합니다')
+            } else {
+                alert('암호를 다시 확인하세요')
+                frm.password.value = "";
+                frm.pwchk.value= "";
+                frm.password.focus();
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <p class="newuser"><h3>계정 등록</h3></p>
+    <hr>
+
+    <form method="post" name="frm">
+        {% csrf_token %}
+    <div class="input-group">
+        <span class="input-group-addon">아이디</span>
+        <input id="id" type="text" class="form-control" name="username" placeholder="ID">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">닉네임</span>
+        <input id="id" type="text" class="form-control" name="nickname" placeholder="Nickname">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">패스워드</span>
+        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">패스워드 확인</span>
+        <input id="pwchk" type="password" class="form-control" name="pwchk" placeholder="Password Check" onchange="pwCheck()">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">이름</span>
+        <input id="first_name" type="text" class="form-control" name="first_name" placeholder="First Name">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">성</span>
+        <input id="last_name" type="text" class="form-control" name="last_name" placeholder="Last Name">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">이메일</span>
+        <input id="email" type="email" class="form-control" name="email" placeholder="email">
+      </div>
+       <hr>
+    <div class="input-group-size">
+        <input type="reset" value="다시 입력" >
+         <input type="submit" value="회원가입" > 
+         <input type="button" onclick="document.location.href='/'" value="메인">
+        </div>
+</form>
+
+</body>
+</html>

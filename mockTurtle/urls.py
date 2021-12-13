@@ -18,6 +18,8 @@ from django.urls import path, include
 from quiz.views import quiz
 from . import views
 
+app_name="INDEX"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mypage/', include('mypage.urls')),
@@ -26,4 +28,10 @@ urlpatterns = [
     path('bookmark/', include('bookmark.urls')),
     path('achvm/', include('achievement.urls')),
     path('rating/', include('rating.urls')),
+    
+    path('account/', include('django.contrib.auth.urls')),
+    path('account/register/', views.createAccount, name="createAccount"),
+    path('account/myinfo/', views.myInfo, name="myInfo"),
+    path('account/deleteuser/', views.deleteInfo, name="deleteuser"),
+
 ]
