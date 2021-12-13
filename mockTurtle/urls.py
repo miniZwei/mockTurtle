@@ -23,4 +23,7 @@ urlpatterns = [
     path('mypage/', include('mypage.urls')),
     path('quiz/', include('quiz.urls')),
     path('', views.index),
+    path('bookmark/', include('bookmark.urls')),
+    path('achvm/', include('achievement.urls')),
+    path('rating/', include('rating.urls')),
 ]

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mypage', 'quiz', 'test1',
+    'bookmark', 'achievement', 'rating',
 ]
 
 MIDDLEWARE = [

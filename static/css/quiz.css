@@ -216,3 +216,8 @@ button:hover {
     }
 }
 
+#share{
+  position: relative;
+  bottom: 0%;
+}
+

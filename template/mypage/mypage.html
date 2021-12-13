@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Zwei Moon">
     <meta name="description"
-        content="check your personal information here, including your nickname, level, achievements and etc.. User also can chage his/her own information here.">
+        content="check your personal information here, including your nickname, level, achievements and etc..">
     <title>MY PAGE</title>
+
 
     <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
@@ -17,6 +18,11 @@
     <!--owl carousel plugin-->
     <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.theme.default.min.css' %}">
+
+    
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/modals.js' %}"></script>
 
 
     <style>
@@ -29,6 +35,13 @@
             background-size: 100% 100%;
 
         }
+
+        p.leg_title{
+            font-weight: 700;
+            font-size: large;
+        }
+
+
     </style>
 
 </head>
@@ -36,13 +49,9 @@
 
 <body>
 
-    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/jquery.mousewheel.js' %}"></script>
-
 
     <div id="logo">
-        <a href='/''><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a>
+        <a href='/'><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a>
     </div>
 
 
@@ -55,50 +64,112 @@
 
         <div id="userName">
             <p id="userLevel">LV. 1 </p>
-            <p id="userNick"> nachthexe</p>
+            <p id="userNick"> 닉네임</p>
         </div>
     </div>
     <div id="legacyTitle">업적</div>
 
 
-    <script>
-        $(document).ready(function () {
-            $(".owl-carousel").owlCarousel();
+        <div class="modal" id="modalTw">
+            <div class="modal_body" id="mbTw">
+                <img src="{%static 'images/leg_tw.png'%}" title="짹짹, 첫 SNS 공유!" width="300px" height="380px">
+             <hr>
+              <p class="leg_title">짹짹!</p>
+                <hr>
+                           처음으로 SNS 공유를 완료했습니다!<br>
+                더 많은 친구들에게 바다거북스프를 소개하세요.<hr>
+            
+            </div>
+        </div>
 
+        
+        <div class="modal" id="modalRv">
+            <div class="modal_body" id="mbRv">
+                <img src="{%static 'images/leg_rev.png'%}" title="리벤저" width="300px" height="380px">
+             <hr>
+              <p class="leg_title">리벤저</p>
+                <hr>
+                           실패에 굴하지 않는 복수자,<br>
+                5번의 시도 끝에 정답을 맞췄습니다.<hr>
+            
+            </div>
+        </div>
 
-            owl.owlCarousel({
-                items: 4,                 // 한번에 보여줄 아이템 수
-                loop: true,               // 반복여부
-                margin: 10              // 오른쪽 간격
+        <div class="modal" id="modalHm">
+            <div class="modal_body" id="mbHm">
+                <img src="{%static 'images/leg_holmes.png'%}" title="명탐정 탄생" width="300px" height="380px">
+             <hr>
+              <p class="leg_title">명탐정 탄생</p>
+                <hr>
+                새로운 명탐정의 탄생입니다!<br>
+                힌트를 하나도 보지 않고 정답을 맞췄습니다.<hr>
+            
+            </div>
+        </div>
 
-            });
-        });
+        <div class="modal" id="modalUn">
+            <div class="modal_body" id="mbUn">
+                <img src="{%static 'images/leg_un.png'%}" title="잠겨있는 업적" width="300px" height="380px">
+             <hr>
+              <p class="leg_title">잠겨있는 업적입니다</p>
+                <hr>
+                아직 해제되지 않은 업적입니다.<br>
+                다양한 플레이를 시도하여 업적을 해제해보세요!<hr>
+            
+            </div>
+        </div>
 
-    </script>
+        <div class="modal" id="modalSf">
+            <div class="modal_body" id="mbSf">
+                <img src="{%static 'images/leg_selfie.png'%}" title="첫 프로필 등록" width="300px" height="380px">
+             <hr>
+              <p class="leg_title">우선은 셀카부터!</p>
+                <hr>
+                뭐든 사진부터 찍고 시작하는거 아닌가요?<br>
+                첫 프로필 이미지를 등록했습니다!<hr>
+            
+            </div>
+        </div>
+
+        <div class="modal" id="modalCr">
+            <div class="modal_body" id="mbCr">
+                <img src="{%static 'images/leg_crown.png'%}" title="모든 문제 완료" width="300px" height="380px">
+             <hr>
+              <p class="leg_title">대관식!</p>
+                <hr>
+                왕관을 쓰세요!<br>
+               바다거북스프의 모든 문제를 풀었습니다.<hr>
+            
+            </div>
+        </div>
 
         <div class="row">
             <div class="center col-sm-3">
                 <div class="slider">
                     <div class="owl-carousel owl-theme">
-                        <div class="item"> <img src="{%static 'images/leg_tw.png'%}" title="짹짹, 첫 SNS 공유!"></div>
-                        <div class="item"> <img src="{%static 'images/leg_rev.png'%}" title="리벤저"> </div>
-                        <div class="item"> <img src="{%static 'images/leg_holmes.png'%}" title="명탐정 탄생"> </div>
-                        <div class="item"> <img src="{%static 'images/leg_selfie.png'%}" title="첫 프로필 사진 등록"> </div>
-                        <div class="item"> <img src="{%static 'images/leg_crown.png'%}" title="모든 문제를 풀었습니다!"></div>
-                        <div class="item"> <img src="{%static 'images/leg_un.png'%}" title="아직 해제되지 않은 업적입니다"> </div>
-                        <div class="item"> <img src="{%static 'images/leg_un.png'%}" title="아직 해제되지 않은 업적입니다"></div>
-                        <div class="item"> <img src="{%static 'images/leg_un.png'%}" title="아직 해제되지 않은 업적입니다"></div>
-                        <div class="item"> <img src="{%static 'images/leg_un.png'%}" title="아직 해제되지 않은 업적입니다"></div>
+                            <div class="item" onclick="modalTw()"> <img src="{%static 'images/leg_tw.png'%}" title="짹짹!"> </div>
+                            <div class="item"  onclick="modalRv()"> <img src="{%static 'images/leg_rev.png'%}" title="리벤저"> </div>
+                            <div class="item"  onclick="modalHm()"> <img src="{%static 'images/leg_holmes.png'%}" title="명탐정 탄생"> </div>
+                            <div class="item"  onclick="modalSf()"> <img src="{%static 'images/leg_selfie.png'%}" title="첫 프로필 사진 등록"> </div>
+                            <div class="item"  onclick="modalCr()"> <img src="{%static 'images/leg_crown.png'%}" title="모든 문제를 풀었습니다!"></div>
+                            <div class="item"  onclick="modalUn()"> <img src="{%static 'images/leg_un.png'%}" title="아직 해제되지 않은 업적입니다"> </div>
+                            <div class="item" onclick="modalUn()"> <img src="{%static 'images/leg_un.png'%}" title="아직 해제되지 않은 업적입니다"></div>
+                            <div class="item" onclick="modalUn()"> <img src="{%static 'images/leg_un.png'%}" title="아직 해제되지 않은 업적입니다"></div>
+                            <div class="item" onclick="modalUn()"> <img src="{%static 'images/leg_un.png'%}" title="아직 해제되지 않은 업적입니다"></div>
                     </div>
                 </div>
             </div>
 
 
         <div id="otherpart">
-            <img src="{%static 'images/etc_play.png'%}" width="150px" height="100px" id="etcplay" title="최근 플레이">
-            <img src="{%static 'images/etc_bookmark.png'%}" width="150px" height="100px" id="etcbm" title="북마크한 게임">
-            <img src="{%static 'images/etc_star.png'%}" width="150px" height="100px" id="etcstar" title="별점">
+           <a href="#"> <img src="{%static 'images/etc_play.png'%}" width="150px" height="100px" id="etcplay" title="최근 플레이"></a>
+            <a href="{% url 'BM:bmark' %}"><img src="{%static 'images/etc_bookmark.png'%}" width="150px" height="100px" id="etcbm" title="북마크한 게임"></a>
+            <a href="{% url 'RT:SR' %}"><img src="{%static 'images/etc_star.png'%}" width="150px" height="100px" id="etcstar" title="별점">
         </div>
+
+
+
+
 </body>
 
 </html>

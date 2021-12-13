@@ -35,3 +35,12 @@ p{
      font-size: 26pt;
      color: #461111;
 }
+
+#share{
+    color: aliceblue;
+}
+
+p.leg_title{
+    font-weight: 700;
+    font-size: large;
+}
