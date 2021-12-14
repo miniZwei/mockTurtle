@@ -71,3 +71,12 @@ $("#modalUn").fadeOut();
 });
 }
 
+function modalLog(modalname){
+    document.get
+$("#modalLog").fadeIn(300);
+$("."+modalname).fadeIn(300);
+
+$("#mbLog").click(function(){
+$("#modalLog").fadeOut();
+});
+}
