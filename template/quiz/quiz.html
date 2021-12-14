@@ -2,83 +2,150 @@
 <html lang="en">
 
 <head>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/quiz.css'%}" />
-    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css'%}">
-    <script src="{% static 'js/quiz.js' %}"></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIZ</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/quiz.css'%}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css'%}">
+
+  <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+  <script src="{% static 'js/modals.js' %}"></script>
+  <script src="{% static 'js/quiz.js' %}"></script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QUIZ</title>
+
+  <style>
+    .modal.show {
+      display: block;
+    }
+
+    #mbLog {
+      position: absolute;
+      top: 28%;
+      left: 88%;
+      width: 300px;
+      height: 300px;
+      padding: 40px;
+      text-align: center;
+      background-color: #E4D8DC;
+      border-radius: 10px;
+      box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    p.login_title {
+      font-weight: 700;
+      font-size: larger;
+    }
+
+    p.login_email {
+      font-weight: 400;
+      font-size: unset;
+      color: black;
+    }
+
+    #btn1,
+    #btn2 {
+      font-size: unset;
+      font-weight: 200;
+      color: black;
+
+    }
+  </style>
+
 </head>
 
 <body>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">🍽 바다거북스프 🍽</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li ><a href="/">메인</a></li>
-              <li class="active"><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/account/register"><span class="glyphicon glyphicon-user"></span> 회원가입</a></li>
-              <li><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-
-    <!-- <a href='/'><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a> -->
-  
-    <div class="title"><label>Quiz01</label></div>
-    <section class="quiz">
-        <div class="quizImg"></div>
-        <div class="cont">
-            <div id='quizTitle' class="quizTitle"><label>어떤 교통사고</label></div>
-            <div id='quizText' class="quizText" style="display: inline-block;"><label>한 운전자가 자전거를 들이받는 사고를 냈습니다. <br>건널목에서 갑작스럽게 핸들을 꺾다 벌어진 일이었죠.<br>
-                경찰은 운전자가 아닌 다른 사람을 체포했고, <br>운전자는 무사히 집으로 돌아갔습니다. <br>무슨 일이 있었던 걸까요?</label></div>
-            <div id='quizAnswer' class="quizText" style="display: none;"><label>운전자는 운전면허교습을 받던 학생이었습니다. <br>강사가 건널목에서 불법 유턴을 지시했고,<br> 그러다 자전거를 친 것이죠.<br>
-                경찰은 강사가 이 사고에 책임이 있다고 판단하고, <br>강사를 체포하고 운전자인 학생은 돌려보냈습니다.</label></div>
-        </div>
-        <div class="quizContent"></div>
-        <br /><br />
-        <button class="btn-2" id='foo' onclick="solution()">정 답</button><button id="hint" onclick="hintOn()" class="btn-2">힌 트</button>
-    </section>
-    <ul id="hintUl" style="display: none;">
-        <li id="hint1"><a href='javascript:hint1()'>1번 힌트</a></li>
-        <li>2번 힌트</li>
-        <li>3번 힌트</li>
-        <li>4번 힌트</li>
-        <br /><br /><br />
-        <li><a href='javascript:goback()'>돌아가기</a></li>
-    </ul>
-
-    <div id="modal" class="modal">
-        <div class="modal_body">
-            <div class="topbar"></div>
-            <div class='hintTitle'>힌트가 적합하신가요?</div>
-            <div class="hintContent">Yes</div>
-            <br /><br /><br /><br />
-            <a href='javascript:goback()'><span class='goback'>돌아가기</span></a>
-        </div>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">🍽 바다거북스프 🍽</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="/">메인</a></li>
+          <li class="active"><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_active %}
+          <li id="myinfo" onclick="modalLog()"> <a href="#"> <span class="glyphicon glyphicon-user"></span> {{ user.first_name }}</a></li>
+          <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+          {% else %}
+          <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
+          <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+          {% endif %}
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <nav id="share" style="margin-top: 400px; padding-right: 44px;">
-        <a href="https://twitter.com/intent/tweet?url=https://localhost:8000/quiz&text="><img  src="{% static 'images/twitter.png'%}" width="40px" height="40px"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:8000/quiz"><img  src="{% static 'images/facebook.png'%}" width="40px" height="40px"></a>
-        <a href="mailto:info@example.com?&subject=&cc=&bcc=&body=https://localhost:8000/quiz%0A"><img  src="{% static 'images/mail.png'%}" width="40px" height="40px"></a>
-      </nav>
+  <div class="modal" id="modalLog">
+    <div class="modal_body" id="mbLog">
+      <img src="{%static 'images/mp_icon.png'%}" title="유저아이콘" width="80px" height="80px">
+      <hr>
+      <p class="login_title">{{user}}</p>
+      <br>
+      <p class="login_email">{{user.email}}</p>
+      <hr> <a href="{% url 'MP:myP' %}"><input type="button" value="마이페이지" id="btn1"></a>
+      <a href="/account/myinfo"><input type="button" value="회원정보관리" id="btn2"></a>
+    </div>
+  </div>
+
+
+  <!-- <a href='/'><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a> -->
+
+  <div class="title"><label>Quiz01</label></div>
+  <section class="quiz">
+    <div class="quizImg"></div>
+    <div class="cont">
+      <div id='quizTitle' class="quizTitle"><label>어떤 교통사고</label></div>
+      <div id='quizText' class="quizText" style="display: inline-block;"><label>한 운전자가 자전거를 들이받는 사고를 냈습니다. <br>건널목에서
+          갑작스럽게 핸들을 꺾다 벌어진 일이었죠.<br>
+          경찰은 운전자가 아닌 다른 사람을 체포했고, <br>운전자는 무사히 집으로 돌아갔습니다. <br>무슨 일이 있었던 걸까요?</label></div>
+      <div id='quizAnswer' class="quizText" style="display: none;"><label>운전자는 운전면허교습을 받던 학생이었습니다. <br>강사가 건널목에서 불법 유턴을
+          지시했고,<br> 그러다 자전거를 친 것이죠.<br>
+          경찰은 강사가 이 사고에 책임이 있다고 판단하고, <br>강사를 체포하고 운전자인 학생은 돌려보냈습니다.</label></div>
+    </div>
+    <div class="quizContent"></div>
+    <br /><br />
+    <button class="btn-2" id='foo' onclick="solution()">정 답</button><button id="hint" onclick="hintOn()" class="btn-2">힌
+      트</button>
+  </section>
+  <ul id="hintUl" style="display: none;">
+    <li id="hint1"><a href='javascript:hint1()'>1번 힌트</a></li>
+    <li>2번 힌트</li>
+    <li>3번 힌트</li>
+    <li>4번 힌트</li>
+    <br /><br /><br />
+    <li><a href='javascript:goback()'>돌아가기</a></li>
+  </ul>
+
+  <div id="modal" class="modal">
+    <div class="modal_body">
+      <div class="topbar"></div>
+      <div class='hintTitle'>힌트가 적합하신가요?</div>
+      <div class="hintContent">Yes</div>
+      <br /><br /><br /><br />
+      <a href='javascript:goback()'><span class='goback'>돌아가기</span></a>
+    </div>
+  </div>
+
+  <nav id="share">
+    <a href="https://twitter.com/intent/tweet?url=https://localhost:8000/quiz&text="><img
+        src="{% static 'images/twitter.png'%}" width="40px" height="40px"></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:8000/quiz"><img
+        src="{% static 'images/facebook.png'%}" width="40px" height="40px"></a>
+    <a href="mailto:info@example.com?&subject=&cc=&bcc=&body=https://localhost:8000/quiz%0A"><img
+        src="{% static 'images/mail.png'%}" width="40px" height="40px"></a>
+  </nav>
 
 </body>
 

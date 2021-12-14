@@ -11,7 +11,10 @@
         content="check your personal information here, including your nickname, level, achievements and etc..">
     <title>MY PAGE</title>
 
-
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/modals.js' %}"></script>
+    
     <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css'%}" />
@@ -19,10 +22,7 @@
     <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.theme.default.min.css' %}">
 
-    
-    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/modals.js' %}"></script>
+
 
 
     <style>
@@ -49,7 +49,6 @@
 
 
 <body>
-
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -67,7 +66,6 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_active %}
-
                 <li id="myinfo" onclick="modalLog()" > <a href="#"> <span class="glyphicon glyphicon-user" ></span> {{ user }}</a></li>            
                 <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
                 {% else %}
@@ -88,7 +86,7 @@
 
         <div id="userName">
             <p id="userLevel"  style="padding-bottom: 20px">LV. 1 </p>
-            <a href="/account/myinfo"> <p id="userNick">  {{ user }}</p></a>
+            <p id="userNick">  {{ user }}</p>
         </div>
     </div>
     <div id="legacyTitle">업적</div>
@@ -167,6 +165,7 @@
             </div>
         </div>
 
+
         <div class="modal" id="modalLog">
             <div class="modal_body" id="mbLog">
                 <img src="{%static 'images/mp_icon.png'%}" title="리벤저" width="80px" height="80px">
@@ -178,6 +177,8 @@
                 <a href="/account/myinfo"><input type="button" value="회원정보관리"></a>
                
             </div>
+          </div>
+
 
 
         <div class="row">
