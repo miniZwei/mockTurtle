@@ -1,25 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-{% load staticfiles %}
+    {% load staticfiles %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>== 계정 정보 수정 ==</title>
+    <title>main</title>
 
     <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
 
-  <script>
-      function dtCheck(){
-        alert("확인을 누르면 탈퇴가 완료됩니다");
-      }
 
-  </script>
+    <style>
+        body {
+            background-image: url("{% static 'images/main_back.png' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            height: 110vh;
+            background-size: 100% 100%;
+
+        }
+
+        p.main_title{
+            font-weight: 700;
+            font-size: large;
+        }
+
+    </style>
+     <style type="text/css">
+        .layer {
+            position: absolute;
+            text-align: center;
+            width: 52%;
+            height: 0%;
+            top: 0;
+            left: 0;
+ 
+        }
+        .layer .content {
+            display: inline-block;
+            vertical-align: middle
+        }
+        .layer .blank {
+            display: inline-block;
+            width: 0%;
+            height: 0%;
+            vertical-align: middle
+        }
+        #temp {
+            width:10%;
+            position: absolute;
+            right: 0;
+          }
+    </style>
+
+    
 </head>
 <body>
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -48,23 +88,18 @@
         </div>
       </nav>
 
-    <p><h3>계정 정보를 수정하세요</h3> </p>
+    <div class="layer" >
+        <span class="content"><img id="temp" src="{% static 'images/zwei.png' %}"></img></span>
+        <span class="blank"></span>
+    </div>
+    <!-- <div id="logo">
+        <a href='/'><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a>
+    </div> -->
 
-    <form method="post" name="frm">
-        {% csrf_token %}
-        사용자 ID : <input type="text" value="{{userInfo.username}}"  disabled><br>
-        <input type="hidden" value="{{userInfo.username}}" name="username">
-        사용자 PW : <input type="text" value="" name="password" placeholder="수정할 비밀번호 입력"><br>
-    <label id="check"></label>
-        이름 : <input type="text" value="{{userInfo.first_name}}" name="first_name"><br>
-        성 : <input type="text" value="{{userInfo.last_name}}" name="last_name"><br>
-        이메일 : <input type="email" value="{{userInfo.email}}" name="email"><br>
-        <hr>
-        <input type="submit" value="수정완료">
-        <input type="reset" value="초기화">
-        <a href="/"><input type="button" value="메인으로"></a>
-        <a href="{% url 'deleteuser' %}"><input type="button" value="탈퇴" onclick="dtCheck()"></a>
-    </form>
+    <div id="mainTitle">
+        CHOOSE YOUR STORY
+    </div>
+
 
 </body>
 </html>

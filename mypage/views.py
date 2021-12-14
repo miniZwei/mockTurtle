@@ -4,3 +4,6 @@ from django.shortcuts import render, redirect
 
 def myPage(request):
     return render(request, 'mypage/mypage.html');
+
+def test(request):
+    return render(request, 'mypage/codetest.html');

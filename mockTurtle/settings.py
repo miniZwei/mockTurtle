@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mypage', 'quiz', 'test1',
     'bookmark', 'achievement', 'rating',
-    'account',
+
 ]
 
 MIDDLEWARE = [
@@ -139,3 +139,8 @@ DATABASES = {
         },
     },
 }
+
+LOGIN_URL='/account/login'
+LOGOUT_URL='/account/logout'
+LOGIN_REDIRECT_URL='/'
+

@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 
 def index(request):
-    return HttpResponse('index')
+    return render(request, 'main.html');
 
 
 def createAccount(request):
@@ -53,4 +53,6 @@ def deleteInfo(request):
 
 def test(request):
     return render(request, 'test.html')
+
+
 

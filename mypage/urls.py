@@ -7,5 +7,6 @@ app_name = "MP"
 urlpatterns = [
 
 path('', views.myPage, name="myP"),
+path('test', views.test, name="test"),
 
 ]

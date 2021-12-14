@@ -64,15 +64,15 @@
             <ul class="nav navbar-nav">
               <li><a href="/">메인</a></li>
               <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
-              <li><a href="{% url 'MP:myP' %}">마이페이지</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_active %}
-                <li id="myinfo"><a href="/account/myinfo"><span class="glyphicon glyphicon-user"></span> {{ user }}</a></li>
-                <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> LOGOUT</a></li>
+
+                <li id="myinfo" onclick="modalLog()" > <a href="#"> <span class="glyphicon glyphicon-user" ></span> {{ user }}</a></li>            
+                <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
                 {% else %}
-              <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
-              <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+              <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
+              <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
               {% endif %}
             </ul>
           </div>
@@ -88,7 +88,7 @@
 
         <div id="userName">
             <p id="userLevel"  style="padding-bottom: 20px">LV. 1 </p>
-            <p id="userNick"> 닉네임</p>
+            <a href="/account/myinfo"> <p id="userNick">  {{ user }}</p></a>
         </div>
     </div>
     <div id="legacyTitle">업적</div>
@@ -167,6 +167,19 @@
             </div>
         </div>
 
+        <div class="modal" id="modalLog">
+            <div class="modal_body" id="mbLog">
+                <img src="{%static 'images/mp_icon.png'%}" title="리벤저" width="80px" height="80px">
+             <hr>
+              <p class="login_title">{{user}}</p>
+                <br>
+                {{user.email}}
+                <hr> <a href="{% url 'MP:myP' %}"><input type="button" value="마이페이지"></a>
+                <a href="/account/myinfo"><input type="button" value="회원정보관리"></a>
+               
+            </div>
+
+
         <div class="row">
             <div class="center col-sm-3">
                 <div class="slider">
@@ -196,10 +209,5 @@
 
 </body>
 
-{% block menu_active %}
-<script>
-    document.getElementById("mypage").className="active";
-</script>
-{% endblock %}
 
 </html>
