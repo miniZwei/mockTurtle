@@ -1,4 +1,4 @@
-const card = document.querySelector(".card__inner");
+var card = document.getElementById("ci1");
 card.addEventListener("click", function (e) {
   card.classList.toggle('is-flipped');
 });
