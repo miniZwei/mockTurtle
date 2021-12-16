@@ -6,8 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+	<link rel="stylesheet" href="{%static 'css/bookmark.css'%}" />
+
+    <style>
+        
+        body {
+            background-image: url("{% static 'images/bm_cover.png' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100vw;
+            height: 100vh;
+            background-size: 100% 100%;
+
+        }
+        </style>
+
 </head>
 <body>
- 북마크
+	<div class="card">
+		<div class="card__inner">
+			<div class="card__face card__face--front">
+				<h2>어떤 <br>사고</h2>
+			</div>
+			<div class="card__face card__face--back">
+				<div class="card__content">
+					<div class="card__header">
+						<img src="{%static 'images/mp_icon.png'%}" alt="" class="pp" />
+						<h2>어떤 사고</h2>
+					</div>
+					<div class="card__body">
+						<h3>운전 중 자전거를 친 자동차.</h3>
+						<p>하지만 경찰은 운전자 대신<br> 다른 사람을 체포했습니다.<br>왜일까요?</p>
+                        <br>
+						<a href="{% url 'QZ:quiz' %}"><button>문제로 이동</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{%static 'js/bookmark.js'%}"></script>
 </body>
 </html>
