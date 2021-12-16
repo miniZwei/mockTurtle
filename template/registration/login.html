@@ -11,7 +11,7 @@
         width: 20%;
      padding: 5px;
      position: absolute;
- top: 56%;   
+ top: 47%;   
  left: 40%;
  text-align: center;
       }
@@ -20,7 +20,7 @@
      width: 20%;
      padding: 5px;
      position: absolute;
- top: 60%;   
+ top: 52%;   
  left: 40%;
  text-align: center;
  }
@@ -28,8 +28,8 @@
  .input-group-size{
      padding: 5px;
      position: absolute;
- top: 67%;   
- left: 39.8%;
+ top: 57%;   
+ left: 43.3%;
  text-align: center;
  }
 
@@ -42,7 +42,7 @@
  }
 
  body {
-            background-image: url("{% static 'images/quiz_cover2.png' %}");
+            background-image: url("{% static 'images/login.png' %}"); 
             background-repeat: no-repeat;
             background-position: center;
             width: 100vw;
@@ -50,12 +50,6 @@
             background-size: 100% 100%;
             text-align: center;
 
-        }
-
-        #loginImg{
-            position: absolute;
- top: 25%;   
- left: 42%;
         }
 
   </style>
@@ -89,8 +83,6 @@
 </nav>
 
  <h3 class="loginm"></h3> <br>
-
- <img src="{% static 'images/login.png' %}" width="250px" height="230px" title="loginImage" alt="로그인 이미지" id="loginImg">
  
 <form method="post">
     {%csrf_token%}
@@ -106,7 +98,6 @@
     <div class="input-group-size">
     <input type="reset" value="다시 입력">
      <input type="submit" value="로그인"> 
-     <input type="button" onclick="document.location.href='/'" value="메인">
     </div>
   </form>
   
