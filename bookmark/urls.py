@@ -7,5 +7,6 @@ app_name = "BM"
 urlpatterns = [
 
 path('', views.bookmark, name="bmark"),
+path('test', views.bmtest, name="btest"),
 
 ]

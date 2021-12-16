@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def bookmark(request):
     return render(request, 'bookmark/bookmark.html');
+
+def bmtest(request):
+    return render(request, 'bookmark/bmtest.html');

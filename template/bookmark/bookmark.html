@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-	<link rel="stylesheet" href="{%static 'css/bookmark.css'%}" />
+
+	<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+	<script src="{% static 'js/modals.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
+	<link rel="stylesheet" href="{%static 'css/bookmark.css'%}" >
 
     <style>
-        
         body {
             background-image: url("{% static 'images/bm_cover.png' %}");
             background-repeat: no-repeat;
@@ -19,31 +23,142 @@
             background-size: 100% 100%;
 
         }
-        </style>
+</style>
 
 </head>
 <body>
-	<div class="card">
-		<div class="card__inner">
-			<div class="card__face card__face--front">
-				<h2>어떤 <br>사고</h2>
+
+	<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">🍽 바다거북스프 🍽</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+				{% if user.is_active %}
+              <li><a href="/">메인</a></li>
+              <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
+			  <li class="active"><a href="{% url 'BM:bmark' %}">북마크</a></li>
+			  <li><a href="{% url 'RT:SR' %}">별점</a></li>
+			  {% else %}
+			  <li><a href="/">메인</a></li>
+              <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
+			  {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_active %}
+                <li id="myinfo" onclick="modalLog()" > <a href="#"> <span class="glyphicon glyphicon-user" ></span> {{ user }}</a></li>            
+                <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+                {% else %}
+              <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
+              <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+
+
+	<div class="card" id="card4">
+		<div class="card__inner" id="ci4">
+			<div class="card__face card__face--front" id="ffcolor4">
+				<h2>사막의 불씨</h2>
 			</div>
 			<div class="card__face card__face--back">
 				<div class="card__content">
-					<div class="card__header">
-						<img src="{%static 'images/mp_icon.png'%}" alt="" class="pp" />
-						<h2>어떤 사고</h2>
+					<div class="card__header" id="chcolor4">
+						<a href="{% url 'QZ:quiz' %}"><img src="{%static 'images/bm_icon3.png'%}" alt="게임아이콘" class="pp" title="클릭시 이동합니다"></a>
+						<h2>사막의 불씨</h2>
 					</div>
 					<div class="card__body">
-						<h3>운전 중 자전거를 친 자동차.</h3>
-						<p>하지만 경찰은 운전자 대신<br> 다른 사람을 체포했습니다.<br>왜일까요?</p>
+						<h3 style="margin-top: 0px">사막에서 발견된 시체 한 구.</h3>
+						<p>시체는 부러진 성냥을 손에 쥐고 있습니다.<br>무슨 일이 있었을까요?</p>
                         <br>
-						<a href="{% url 'QZ:quiz' %}"><button>문제로 이동</button></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	
+	<div class="card" id="card3">
+		<div class="card__inner" id="ci3">
+			<div class="card__face card__face--front" id="ffcolor3">
+				<h2>시가렛 앤 알코올</h2>
+			</div>
+			<div class="card__face card__face--back">
+				<div class="card__content">
+					<div class="card__header" id="chcolor3">
+						<a href="{% url 'QZ:quiz' %}"><img src="{%static 'images/bm_icon3.png'%}" alt="게임아이콘" class="pp" title="클릭시 이동합니다"></a>
+						<h2>시가렛 앤 알코올</h2>
+					</div>
+					<div class="card__body">
+						<h3 style="margin-top: 0px">술을 마시고 담배를 피우던 남자.</h3>
+						<p>술에 취해 토한 남자는<br> 몸에 불이 붙어 죽었습니다.<br>왜일까요?</p>
+                        <br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		
+
+
+	<div class="card" id="card1">
+		<div class="card__inner">
+			<div class="card__face card__face--front" id="ffcolor1">
+				<h2>어떤 <br>사고</h2>
+			</div>
+			<div class="card__face card__face--back" id="fbcolor1">
+				<div class="card__content">
+					<div class="card__header" id="chcolor1">
+						<a href="{% url 'QZ:quiz' %}"><img src="{%static 'images/bm_icon1.png'%}" alt="게임아이콘" class="pp" title="클릭시 이동합니다"></a>
+						<h2>어떤 사고</h2>
+					</div>
+					<div class="card__body">
+						<h3 style="margin-top: 0px">운전 중 자전거를 친 자동차.</h3>
+						<p>하지만 경찰은 운전자가 아닌 다른 사람을 체포했습니다. 왜일까요?</p>
+                        <br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card" id="card2">
+		<div class="card__inner" id="ci2">
+			<div class="card__face card__face--front" id="ffcolor2">
+				<h2>바다거북스프</h2>
+			</div>
+			<div class="card__face card__face--back">
+				<div class="card__content">
+					<div class="card__header" id="chcolor2">
+						<a href="{% url 'QZ:quiz' %}"><img src="{%static 'images/bm_icon2.png'%}" alt="게임아이콘" class="pp" title="클릭시 이동합니다"></a>
+						<h2>바다거북스프</h2>
+					</div>
+					<div class="card__body">
+						<h3 style="margin-top: 0px">바다거북스프를 주문한 남자</h3>
+						<p>스프를 먹은 남자는 집으로 돌아가 자살했습니다.<br>왜일까요?</p>
+                        <br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<script src="{%static 'js/bookmark.js'%}"></script>
+
 </body>
 </html>

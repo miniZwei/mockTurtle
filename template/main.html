@@ -77,33 +77,41 @@
 </head>
 
   <body>
+
     <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">🍽 바다거북스프 🍽</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="/">메인</a></li>
-              <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if user.is_active %}
-                <li id="myinfo" onclick="modalLog()" > <a href="#"> <span class="glyphicon glyphicon-user" ></span> {{ user }}</a></li>            
-                <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
-                {% else %}
-              <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
-              <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
-              {% endif %}
-            </ul>
-          </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">🍽 바다거북스프 🍽</a>
         </div>
-      </nav>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+      {% if user.is_active %}
+            <li class="active"><a href="/">메인</a></li>
+            <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
+      <li ><a href="{% url 'BM:bmark' %}">북마크</a></li>
+      <li><a href="{% url 'RT:SR' %}">별점</a></li>
+      {% else %}
+      <li class="active"><a href="/">메인</a></li>
+            <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
+      {% endif %}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              {% if user.is_active %}
+              <li id="myinfo" onclick="modalLog()" > <a href="#"> <span class="glyphicon glyphicon-user" ></span> {{ user }}</a></li>            
+              <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+              {% else %}
+            <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
+            <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
 
       <div class="modal" id="modalLog">
         <div class="modal_body" id="mbLog">
@@ -117,10 +125,10 @@
             </div>
       </div>
 
-    <div class="layer" >
+    <!-- <div class="layer" >
         <span class="content"><img id="temp" src="{% static 'images/zwei.png' %}"></img></span>
         <span class="blank"></span>
-    </div>
+    </div> -->
     <!-- <div id="logo">
         <a href='/'><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a>
     </div> -->

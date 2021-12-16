@@ -64,7 +64,7 @@
 
 <body>
 
-  <nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -76,15 +76,29 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="/">메인</a></li>
+    {% if user.is_active %}
+          <li ><a href="/">메인</a></li>
           <li class="active"><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
+    <li ><a href="{% url 'BM:bmark' %}">북마크</a></li>
+    <li><a href="{% url 'RT:SR' %}">별점</a></li>
+    {% else %}
+    <li><a href="/">메인</a></li>
+          <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
+    {% endif %}
         </ul>
         <ul class="nav navbar-nav navbar-right">
+<<<<<<< Updated upstream
           {% if user.is_active %}
           <li id="myinfo" onclick="modalLog()"> <a href="#"> <span class="glyphicon glyphicon-user"></span> {{
               user.first_name }}</a></li>
           <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
           {% else %}
+=======
+            {% if user.is_active %}
+            <li id="myinfo" onclick="modalLog()" > <a href="#"> <span class="glyphicon glyphicon-user" ></span> {{ user }}</a></li>            
+            <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+            {% else %}
+>>>>>>> Stashed changes
           <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
           <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
           {% endif %}
