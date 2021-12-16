@@ -12,6 +12,7 @@ function goback() {
     document.getElementById('hint2').style.display = 'none';
     document.getElementById('hint3').style.display = 'none';
     document.getElementById('hint4').style.display = 'none';
+    document.getElementById('hint5').style.display = 'none';
     document.getElementById('hintUl').style.display = 'none';
 }
 

@@ -87,18 +87,12 @@
     {% endif %}
         </ul>
         <ul class="nav navbar-nav navbar-right">
-<<<<<<< Updated upstream
+
           {% if user.is_active %}
           <li id="myinfo" onclick="modalLog()"> <a href="#"> <span class="glyphicon glyphicon-user"></span> {{
               user.first_name }}</a></li>
           <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
           {% else %}
-=======
-            {% if user.is_active %}
-            <li id="myinfo" onclick="modalLog()" > <a href="#"> <span class="glyphicon glyphicon-user" ></span> {{ user }}</a></li>            
-            <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
-            {% else %}
->>>>>>> Stashed changes
           <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
           <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
           {% endif %}
@@ -139,6 +133,7 @@
     <li><a href='javascript:hint2()'>2번 힌트</a></li>
     <li><a href='javascript:hint3()'>3번 힌트</a></li>
     <li><a href='javascript:hint4()'>4번 힌트</a></li>
+    <li><a href='javascript:hint5()'>5번 힌트</a></li>
     <br /><br /><br />
     <li><a href='javascript:goback()'>돌아가기</a></li>
   </ul>
@@ -148,7 +143,9 @@
       <div class="topbar"></div>
       <br/><br/>
       <div class="hintContent">{{ quiz.hint1 }}</div>
-      <br /><br /><br />
+      <br/><br/>
+      <div class='hintresponse'>{{ quiz.hint1_response }}</div>
+      <br /><br />
       <a href='javascript:goback()'><span class='goback'>돌아가기</span></a>
     </div>
   </div> 
@@ -158,7 +155,9 @@
       <div class="topbar"></div>
       <br/><br/>
       <div class="hintContent">{{ quiz.hint2 }}</div>
-      <br /><br /><br />
+      <br/><br/>
+      <div class='hintresponse'>{{ quiz.hint2_response }}</div>
+      <br /><br />
       <a href='javascript:goback()'><span class='goback'>돌아가기</span></a>
     </div>
   </div>  
@@ -168,7 +167,9 @@
       <div class="topbar"></div>
       <br/><br/>
       <div class="hintContent">{{ quiz.hint3 }}</div>
-      <br /><br /><br />
+      <br/><br/>
+      <div class='hintresponse'>{{ quiz.hint3_response }}</div>
+      <br /><br />
       <a href='javascript:goback()'><span class='goback'>돌아가기</span></a>
     </div>
   </div>  
@@ -178,7 +179,21 @@
       <div class="topbar"></div>
       <br/><br/>
       <div class="hintContent">{{ quiz.hint4 }}</div>
-      <br /><br /><br />
+      <br/><br/>
+      <div class='hintresponse'>{{ quiz.hint4_response }}</div>
+      <br /><br />
+      <a href='javascript:goback()'><span class='goback'>돌아가기</span></a>
+    </div>
+  </div>  
+
+  <div id="hint5" class="modal">
+    <div class="modal_body">
+      <div class="topbar"></div>
+      <br/><br/>
+      <div class="hintContent">{{ quiz.hint5 }}</div>
+      <br/><br/>
+      <div class='hintresponse'>{{ quiz.hint5_response }}</div>
+      <br /><br />
       <a href='javascript:goback()'><span class='goback'>돌아가기</span></a>
     </div>
   </div>  

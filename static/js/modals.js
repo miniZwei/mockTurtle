@@ -105,6 +105,12 @@ $("#hint4").fadeIn(300);
 $("."+modalname).fadeIn(300);
 }
 
+function hint5(modalname){
+    document.get
+$("#hint5").fadeIn(300);
+$("."+modalname).fadeIn(300);
+}
+
 function solution(modalname){
     document.get
 $("#answer").fadeIn(300);

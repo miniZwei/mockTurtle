@@ -179,9 +179,13 @@ display: inline-block;
 
 .hintContent{
 position: relative;
-font-size: 200%;
+font-size: 150%;
 margin-left: 3%;
 display: inline-block;
+}
+
+.hintresponse {
+  font-size: 150%;
 }
 
 .goback{
