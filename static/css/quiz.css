@@ -155,16 +155,16 @@ color: #202075;
   width: 100%;
 }
 
+
 .modal {
   border: black solid 2px;
   position: absolute;
   margin-left: 25%;
-  height: 30%;
+  height: 270px;
   text-align: center;
   margin-top: 15%;
   vertical-align: middle;
-  width: 50%; 
-  height: 30%; 
+  width: 50%;
   display: none; 
   background-color: white; 
   font-weight: bold;
@@ -173,13 +173,13 @@ color: #202075;
 .hintTitle {
 position: relative;
 margin-top: 5%;
-font-size: 200%;
+font-size: 150%;
 display: inline-block;
 }
 
 .hintContent{
 position: relative;
-font-size: 250%;
+font-size: 200%;
 margin-left: 3%;
 display: inline-block;
 }

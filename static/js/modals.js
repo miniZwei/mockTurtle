@@ -76,11 +76,38 @@ function modalLog(modalname){
 $("#modalLog").fadeIn(300);
 $("."+modalname).fadeIn(300);
 
-$("#mbLog").click(function(){
-    
-});
-
 $('#modalLog').click(function(){
     $('#modalLog').fadeOut();
 });
 }
+
+function hint1(modalname){
+    document.get
+$("#hint1").fadeIn(300);
+$("."+modalname).fadeIn(300);
+}
+
+function hint2(modalname){
+    document.get
+$("#hint2").fadeIn(300);
+$("."+modalname).fadeIn(300);
+}
+
+function hint3(modalname){
+    document.get
+$("#hint3").fadeIn(300);
+$("."+modalname).fadeIn(300);
+}
+
+function hint4(modalname){
+    document.get
+$("#hint4").fadeIn(300);
+$("."+modalname).fadeIn(300);
+}
+
+function solution(modalname){
+    document.get
+$("#answer").fadeIn(300);
+$("."+modalname).fadeIn(300);
+}
+
