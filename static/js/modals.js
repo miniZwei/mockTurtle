@@ -77,7 +77,7 @@ $("#modalLog").fadeIn(300);
 $("."+modalname).fadeIn(300);
 
 $("#mbLog").click(function(){
-$("#modalLog").fadeOut();
+    
 });
 
 $('#modalLog').click(function(){

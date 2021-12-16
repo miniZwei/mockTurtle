@@ -85,8 +85,8 @@
         <img src="{%static 'images/mp_icon.png'%}" width="120px" height="170px" id="mpIcon">
 
         <div id="userName">
-            <p id="userLevel"  style="padding-bottom: 20px">LV. 1 </p>
-            <p id="userNick">  {{ user }}</p>
+            <p id="userLevel"  style="padding-bottom: 20px">LV. {{ user.level }} </p>
+            <p id="userNick">  {{ user.first_name }}</p>
         </div>
     </div>
     <div id="legacyTitle">업적</div>
@@ -100,7 +100,6 @@
                 <hr>
                            처음으로 SNS 공유를 완료했습니다!<br>
                 더 많은 친구들에게 바다거북스프를 소개하세요.<hr>
-            
             </div>
         </div>
 
