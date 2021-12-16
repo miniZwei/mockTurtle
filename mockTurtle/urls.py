@@ -33,5 +33,5 @@ urlpatterns = [
     path('account/register/', views.createAccount, name="createAccount"),
     path('account/myinfo/', views.myInfo, name="myInfo"),
     path('account/deleteuser/', views.deleteInfo, name="deleteuser"),
-
+    path('ajax_method/', views.ajax_method),
 ]
