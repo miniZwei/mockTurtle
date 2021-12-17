@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mypage', 'quiz', 'test1',
+    'mypage', 'quiz',
     'bookmark', 'achievement', 'rating',
 
 ]

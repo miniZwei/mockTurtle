@@ -101,7 +101,7 @@
       top: 28%;
       left: 88%;
       width: 300px;
-      height: 300px;
+      height: 320px;
       padding: 40px;
       text-align: center;
       background-color: #E4D8DC;
@@ -135,18 +135,15 @@
         <ul class="nav navbar-nav">
           {% if user.is_active %}
           <li class="active"><a href="/">메인</a></li>
-          <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
           <li><a href="{% url 'BM:bmark' %}">북마크</a></li>
           <li><a href="{% url 'RT:SR' %}">별점</a></li>
           {% else %}
           <li class="active"><a href="/">메인</a></li>
-          <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
           {% endif %}
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_active %}
-          <li id="myinfo" onclick="modalLog()"> <a href="#"> <span class="glyphicon glyphicon-user"></span> {{ user
-              }}</a></li>
+          <li id="myinfo" onclick="modalLog()"> <a href="#"> <span class="glyphicon glyphicon-user"></span> {{ user.first_name }}</a></li>
           <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
           {% else %}
           <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
@@ -155,6 +152,20 @@
         </ul>
       </div>
     </div>
+  </nav>
+
+  <div class="modal" id="modalLog">
+    <div class="modal_body" id="mbLog">
+      <img src="{%static 'images/mp_icon.png'%}" title="유저아이콘" width="80px" height="80px">
+      <hr>
+      <p class="login_title"> {{ user.first_name }} </p>
+      <br>
+      ID: {{user}} <br> EMAIL: {{user.email}}
+      <hr> <a href="{% url 'MP:myP' %}"><input type="button" value="마이페이지"></a>
+      <a href="/account/myinfo"><input type="button" value="회원정보관리"></a>
+    </div>
+  </div>
+  </div>
   </nav>
 
   <div class="modal" id="modalLog">

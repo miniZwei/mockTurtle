@@ -9,8 +9,18 @@
     <title>== 계정등록 ==</title>
 
     <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font.css'%}" />
+
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/modals.js' %}"></script>
 
     <style>
+
+
+#frm{position: relative;
+top: 30%;
+left: 40.4%;
+}
 
          .input-group{
              width: 20%;
@@ -28,6 +38,19 @@
          .input-group-addon{
              width: 40%;
          }
+
+         
+ body {
+            background-image: url("{% static 'images/signup.png' %}"); 
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100vw;
+            height: 100vh;
+            background-size: 100% 100%;
+            text-align: center;
+
+        }
+
           </style>
          
     <script>
@@ -43,6 +66,8 @@
                 frm.password.focus();
             }
         }
+
+        
 
     </script>
 </head>
@@ -61,7 +86,6 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li ><a href="/">메인</a></li>
-          <li><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             {% if user.is_active %}
@@ -76,8 +100,22 @@
     </div>
   </nav>
 
+        <div class="modal" id="modalLog">
+            <div class="modal_body" id="mbLog">
+                <img src="{%static 'images/mp_icon.png'%}" title="리벤저" width="80px" height="80px">
+             <hr>
+             <p class="login_title"> {{ user.first_name }} </p>
+             <br>
+            ID: {{user}} <br> EMAIL: {{user.email}}
+                <hr> <a href="{% url 'MP:myP' %}"><input type="button" value="마이페이지"></a>
+                <a href="/account/myinfo"><input type="button" value="회원정보관리"></a>
+               
+            </div>
+          </div>
 
-    <form method="post" name="frm">
+
+
+    <form method="post" id="frm">
         {% csrf_token %}
     <div class="input-group">
         <span class="input-group-addon">아이디</span>
@@ -99,12 +137,13 @@
         <span class="input-group-addon">이메일</span>
         <input id="email" type="email" class="form-control" name="email" placeholder="email">
       </div>
-       <hr>
-    <div class="input-group-size">
+
+      <div class="input-group-size" style="padding-right: 1220px;">
         <input type="reset" value="다시 입력" >
          <input type="submit" value="회원가입" > 
-         <input type="button" onclick="document.location.href='/'" value="메인">
         </div>
+       
+ 
 </form>
 
 </body>

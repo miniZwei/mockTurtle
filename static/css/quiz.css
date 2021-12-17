@@ -55,13 +55,18 @@ a:hover { color: #3A3ADB; text-decoration: none;}
 }
 
 .quizImg{
-  background-image: url('/static/images/sample.png');
   display: inline-block;
   margin-left: 3%;
   margin-right: 3%;
   width: 30%;
   height: 80%;
   vertical-align: middle;
+}
+
+#quizImg {
+  top: 15%;
+  width: 100%;
+  height: 100%;
 }
 
 .quizText{

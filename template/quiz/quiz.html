@@ -78,28 +78,17 @@
         <ul class="nav navbar-nav">
     {% if user.is_active %}
           <li ><a href="/">메인</a></li>
-          <li class="active"><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
     <li ><a href="{% url 'BM:bmark' %}">북마크</a></li>
     <li><a href="{% url 'RT:SR' %}">별점</a></li>
     {% else %}
     <li><a href="/">메인</a></li>
-          <li class="active"><a href="{% url 'QZ:quiz' %}">문제풀기</a></li>
     {% endif %}
         </ul>
         <ul class="nav navbar-nav navbar-right">
-<<<<<<< Updated upstream
-
-          {% if user.is_active %}
-          <li id="myinfo" onclick="modalLog()"> <a href="#"> <span class="glyphicon glyphicon-user"></span> {{
-              user.first_name }}</a></li>
-          <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
-          {% else %}
-=======
             {% if user.is_active %}
-            <li id="myinfo" onclick="modalLog()" > <a href="#"> <span class="glyphicon glyphicon-user" ></span> {{ user }}</a></li>            
+            <li id="myinfo" onclick="modalLog()" > <a href="#"> <span class="glyphicon glyphicon-user" ></span> {{ user.first_name }}</a></li>            
             <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
             {% else %}
->>>>>>> Stashed changes
           <li id="register"><a href="/account/register"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
           <li id="login"><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
           {% endif %}
@@ -112,20 +101,18 @@
     <div class="modal_body" id="mbLog">
       <img src="{%static 'images/mp_icon.png'%}" title="유저아이콘" width="80px" height="80px">
       <hr>
-      <p class="login_title">{{user}}</p>
+      <p class="login_title">{{user.first_name}}</p>
       <br>
-      <p class="login_email">{{user.email}}</p>
+      <p class="login_email">ID:{{user}} <br> <br><br><br><br><br><br><br><br><br>EMAIL: {{user.email}}</p>
       <hr> <a href="{% url 'MP:myP' %}"><input type="button" value="마이페이지" id="btn1"></a>
       <a href="/account/myinfo"><input type="button" value="회원정보관리" id="btn2"></a>
     </div>
   </div>
 
 
-  <!-- <a href='/'><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a> -->
-
   <div class="title"><label>Quiz {{ quiz.quiz_no }}</label></div>
   <section class="quiz">
-    <div class="quizImg"></div>
+    <div class="quizImg"><img id="quizImg" src={{ quiz.quiz_image }} /></div>
     <div class="cont">
       <div id='quizTitle' class="quizTitle"><label>{{ quiz.quiz_title }}</label></div>
       <div id='quizText' class="quizText" style="display: inline-block;"><label>{{ quiz.quiz_content }}</label></div>
