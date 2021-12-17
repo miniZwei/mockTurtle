@@ -6,6 +6,14 @@ body {
     text-align: center;
 }
 
+#mainTitle{
+    font-family: 'Black Han Sans', sans-serif;
+    color: black;
+    margin-top: 60px;
+    padding-right: 39px;
+    font-size: 50pt;
+}
+
 #mpTitle{
     font-family: 'Black Han Sans', sans-serif;
     color: black;
