@@ -36,6 +36,16 @@
    font-size: larger;
   }
 
+  body {
+            background-image: url("{% static 'images/sr_cover.png' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100vw;
+            height: 100vh;
+            background-size: 100% 100%;
+
+        }
+
     </style>
 
 </head>
@@ -86,6 +96,30 @@
            
         </div>
         </div>
+       
+    {% if rp.username == user.username%}
+
+        {% if rp.rating_ps == 1%}
+        <img src="{%static 'images/star1.png' %}">
+
+        {% elif rp.rating_ps == 2%}
+        <img src="{%static 'images/star2.png' %}">
         
+        {% elif rp.rating_ps == 3%}
+          {{ rp.quiz_no }}
+           <img src="{%static 'images/star3.png' %}">
+
+          {% elif rp.rating_ps == 4%}
+          <img src="{%static 'images/star4.png' %}">
+
+          {% elif rp.rating_ps == 5 %}
+          <img src="{%static 'images/star5.png' %}">
+          {{ rp.quiz_no }}
+
+          {% endif %}
+
+      {%endif%}
+
 </body>
 </html>
+

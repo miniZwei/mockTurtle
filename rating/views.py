@@ -1,20 +1,17 @@
 from django.shortcuts import render, redirect
 from rating.models import RatingPersonal
+from quiz.models import Quiz
 
 # Create your views here.
 
 def starRating(request):
-    return render(request, 'rating/rating.html');
+    if request.method == 'GET':
+        rptable = RatingPersonal.objects.get(username = request.user.username)
+        quiz = Quiz()
 
-def test(request):
-    if request.method == 'POST':
-        rptable = RatingPersonal()
-        rptable.username = request.user.username
-        rptable.quiz_no = 999
-        rptable.rating_ps = request.POST.get('rating_ps')
-        rptable.save()
+        context = {
+            'rp' : rptable,
+            'quiz' : quiz
+        }
 
-        return redirect('/mypage/')
-    
-    else:
-        return render(request, 'rating/test.html')
+        return render(request, 'rating/rating.html', context);
