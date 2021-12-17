@@ -7,13 +7,6 @@ from django.http import JsonResponse
 def index(request):
     return render(request, 'main.html');
 
-@csrf_exempt
-def ajax_method(request):
-    receive_message = request.POST.get('send_data')
-    send_message = {'send_data' : "I received"}
-    print('test hello')
-    return JsonResponse(send_message)
-
 def createAccount(request):
     if(request.method == 'POST'):
         username = request.POST.get('username');

@@ -16,5 +16,10 @@ class Quiz(models.Model):
     hint5 = models.CharField(max_length=1000)
     hint5_response = models.CharField(max_length=100)
     answer = models.CharField(max_length=1000)
+    answer_keyword = models.CharField(max_length=200)
     quiz_summary = models.CharField(max_length=500)
     quiz_image = models.CharField(max_length=200)
+
+class SolvedQuiz(models.Model):
+    username = models.CharField(max_length=150, null=False)
+    quiz_no = models.IntegerField(null=False)

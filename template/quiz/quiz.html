@@ -10,6 +10,7 @@
   <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
   <script src="{% static 'js/modals.js' %}"></script>
   <script src="{% static 'js/quiz.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,7 +60,8 @@
 
     }
   </style>
-
+ 
+ 
 </head>
 
 <body>
@@ -118,6 +120,16 @@
       <div id='quizText' class="quizText" style="display: inline-block;"><label>{{ quiz.quiz_content }}</label></div>
     </div>
     <div class="quizContent"></div>
+    <br/>
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" value="{{ quiz.quiz_no }}" name="num" />
+      <input type="text" id="answer2" name="answer" style="color: black;"/>
+      <input type="submit" value="정답 제출" style="color: black;"/>
+    </form>
+    {% if quiz.quiz_no == solved_quiz.quiz_no %}
+      <div>별점 주기</div>
+    {% endif %}
     <br /><br />
     <button class="btn-2" id='foo' onclick="solution()">정 답</button><button id="hint" onclick="hintOn()" class="btn-2">힌
       트</button>
@@ -211,7 +223,5 @@
     <a href="mailto:info@example.com?&subject=&cc=&bcc=&body=https://localhost:8000/quiz%0A"><img
         src="{% static 'images/mail.png'%}" width="40px" height="40px"></a>
   </nav>
-
 </body>
-
 </html>

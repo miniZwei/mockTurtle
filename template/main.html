@@ -15,26 +15,6 @@
   <script src="{% static 'js/modals.js' %}"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script>
-    function test() {
-      $.ajax({
-        url: '/ajax_method/',
-        type: "POST",
-        dataType: "json",
-        data: { 'send_data': 'Send this message' },
-        success: function (data) {
-          console.log(data);
-          alert('비동기 통신 성공!');
-        }, beforeSend: function () {
-          console.log("i am waiting");
-        }, complete: function () {
-          console.log("i am done");
-        }, error: function (request, status, error) {
-          console.log('i am failed');
-        }
-      });
-    }</script>
-
 
   <style>
     body {
@@ -115,8 +95,6 @@
       font-size: larger;
     }
   </style>
-
-
 </head>
 
 <body>
@@ -179,14 +157,6 @@
       <a href="/account/myinfo"><input type="button" value="회원정보관리"></a>
     </div>
   </div>
-
-  <!-- <div class="layer" >
-        <span class="content"><img id="temp" src="{% static 'images/zwei.png' %}"></img></span>
-        <span class="blank"></span>
-    </div> -->
-  <!-- <div id="logo">
-        <a href='/'><div class="logo"><img width="70px" height="70px" class="logo" src="{% static 'images/zwei.png' %}" /></div></a>
-    </div> -->
 
   <div id="mainTitle">
     CHOOSE YOUR STORY

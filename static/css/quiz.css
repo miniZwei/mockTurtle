@@ -69,6 +69,10 @@ a:hover { color: #3A3ADB; text-decoration: none;}
   height: 100%;
 }
 
+#sub{
+  color: black;
+}
+
 .quizText{
   display: inline-block;
   position: relative;
@@ -232,7 +236,7 @@ padding: 2%;
 #share{
 position: relative;
 bottom: 0%;
-margin-top: 32%;
+margin-top: 35%;
 padding-right: 0.45%;
 }
 
