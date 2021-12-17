@@ -6,5 +6,4 @@ app_name = "RT"
 
 urlpatterns = [
     path('', views.starRating, name="SR"),
-    path('test/', views.test)
 ]
