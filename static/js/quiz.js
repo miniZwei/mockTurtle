@@ -20,3 +20,6 @@ function goquiz(){
     document.getElementById('answer').style.display = 'none';
 }
 
+const drawStar = (target) => {
+    document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
+  }

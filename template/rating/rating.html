@@ -37,7 +37,7 @@
   }
 
   body {
-            background-image: url("{% static 'images/sr_cover.png' %}");
+    background-image: url("{% static 'images/sr_cover2.png' %}");
             background-repeat: no-repeat;
             background-position: center;
             width: 100vw;
@@ -45,6 +45,92 @@
             background-size: 100% 100%;
 
         }
+
+        @import url(https://fonts.googleapis.com/css?family=Cabin:700);
+
+
+.circle-container {
+	position: relative;
+	perspective: 1000;	
+	margin: 0 auto;	
+}
+		
+.circle-container:hover .circle {
+	transform: rotate3d(45, 45, 0, 180deg);
+}
+		
+.circle-container:hover .outer-ring {
+	transform: rotate3d(45, 0, 0, 180deg);
+}
+
+.circle-container:hover .outer-outer-ring {
+	transform: rotate3d(0, 45, 0, 180deg);
+}
+		
+.circle-container, .front, .back {
+	width: 175px;
+	height: 175px;
+	background-color: rgba(0,0,0,0);
+}
+		
+.circle, .outer-ring, .outer-outer-ring {
+	transition: 0.5s;
+	transform-style: preserve-3d;
+	transition-timing-function: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+		
+.circle {
+	position: relative;
+	width: 175px;
+	height: 175px;
+}
+		
+.front, .back {
+	border-radius: 50%;
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+		
+.front {
+
+	z-index: 2;
+}
+		
+/* .front p {
+	
+}
+		 */
+.back {
+	transform: rotate3d(45,45,0,180deg);
+
+}
+		
+.back-logo {
+	width: 60%;
+	display: block;
+	margin: 2em auto;
+}
+
+#centerC{
+  position: absolute;
+  top: 30%;
+  left: 37%;
+}
+
+#leftC{
+  position: absolute;
+  top: 30%;
+  left: 6%;
+}
+
+#rightC{
+  position: absolute;
+  top: 30%;
+  right: 17%;
+}
 
     </style>
 
@@ -97,7 +183,7 @@
         </div>
         </div>
        
-    {% if rp.username == user.username%}
+    <!-- {% if rp.username == user.username%}
 
         {% if rp.rating_ps == 1%}
         <img src="{%static 'images/star1.png' %}">
@@ -118,7 +204,54 @@
 
           {% endif %}
 
-      {%endif%}
+      {%endif%} -->
+
+      <div class="circle-container" id="leftC">
+        <div class="outer-ring"></div>
+        <!-- Used for more of a gyroscope type effect
+        <div class="outer-outer-ring"></div>
+        -->
+        <div class="circle">
+          <div class="front">
+            <p><img src="{%static 'images/mystar1.png'%}" alt=""/></p>
+          </div>
+          <div class="back">
+            <p><img src="{%static 'images/totalstar3.png'%}" alt="The Elevation Group Logo" /></p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="circle-container" id="centerC">
+        <div class="outer-ring"></div>
+        <!-- Used for more of a gyroscope type effect
+        <div class="outer-outer-ring"></div>
+        -->
+        <div class="circle">
+          <div class="front">
+            <p><img src="{%static 'images/mystar5.png'%}" alt=""/></p>
+          </div>
+          <div class="back">
+            <p><img src="{%static 'images/totalstar4.png'%}" alt="The Elevation Group Logo" /></p>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="circle-container" id="rightC">
+        <div class="outer-ring"></div>
+        <!-- Used for more of a gyroscope type effect
+        <div class="outer-outer-ring"></div>
+        -->
+        <div class="circle">
+          <div class="front">
+            <p><img src="{%static 'images/mystar4.png'%}" alt=""/></p>
+          </div>
+          <div class="back">
+            <p><img src="{%static 'images/totalstar2.png'%}" alt="The Elevation Group Logo" /></p>
+          </div>
+        </div>
+      </div>
 
 </body>
 </html>

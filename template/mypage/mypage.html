@@ -207,7 +207,7 @@
 
 
         <div id="otherpart">
-           <a href="#"> <img src="{%static 'images/etc_play.png'%}" width="150px" height="100px" id="etcplay" title="최근 플레이"></a>
+           <a href="{% url 'QZ:quiz' 1 %}"> <img src="{%static 'images/etc_play.png'%}" width="150px" height="100px" id="etcplay" title="최근 플레이"></a>
             <a href="{% url 'BM:bmark' %}"><img src="{%static 'images/etc_bookmark.png'%}" width="150px" height="100px" id="etcbm" title="북마크한 게임"></a>
             <a href="{% url 'RT:SR' %}"><img src="{%static 'images/etc_star.png'%}" width="150px" height="100px" id="etcstar" title="별점">
         </div>

@@ -57,3 +57,5 @@ def quiz(request, quiz_no):
             message += quiz_no
             message += '";</script>'
             return HttpResponse(message)
+
+

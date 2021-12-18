@@ -59,8 +59,10 @@
       color: black;
 
     }
+
+
   </style>
- 
+
  
 </head>
 
@@ -128,8 +130,17 @@
       <input type="submit" value="정답 제출" style="color: black;"/>
     </form>
     {% if quiz.quiz_no == solved_quiz.quiz_no %}
+    <br>
       <div>별점 주기</div>
+
+      <span class="star">
+        ★★★★★
+        <span>★★★★★</span>
+        <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+      </span>
+
     {% endif %}
+
     <br /><br />
     <button class="btn-2" id='foo' onclick="solution()">정 답</button><button id="hint" onclick="hintOn()" class="btn-2">힌
       트</button>
