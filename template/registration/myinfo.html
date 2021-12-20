@@ -54,7 +54,16 @@
             height: 100vh;
             background-size: 100% 100%;
             text-align: center;
+            color: #E4D8DC;
 
+        }
+
+        input{color: black;}
+
+        #frm{
+          position: absolute;
+          top: 50%;
+          left: 42%;
         }
    
   </style>
@@ -94,9 +103,7 @@
     </div>
   </nav>
 
-    <p><h3>계정 정보를 수정하세요</h3> </p>
-
-    <form method="post" name="frm">
+    <form method="post" id="frm">
         {% csrf_token %}
         사용자 ID : <input type="text" value="{{userInfo.username}}"  disabled><br>
         <input type="hidden" value="{{userInfo.username}}" name="username">
@@ -104,7 +111,7 @@
     <label id="check"></label>
         닉네임 : <input type="text" value="{{userInfo.first_name}}" name="first_name"><br>
         이메일 : <input type="email" value="{{userInfo.email}}" name="email"><br>
-        <hr>
+        <br>
          <input type="reset" value="초기화">
         <input type="submit" value="수정완료">       
         <a href="{% url 'deleteuser' %}"><input type="button" value="탈퇴" onclick="dtCheck()"></a>
@@ -113,11 +120,11 @@
     <div class="modal" id="modalLog">
       <div class="modal_body" id="mbLog">
         <img src="{%static 'images/mp_icon.png'%}" title="유저아이콘" width="80px" height="80px">
-       <hr>
+       
         <p class="login_title"> {{ user.first_name }} </p>
         <br>
        ID: {{user}} <br> EMAIL: {{user.email}}
-        <hr> <a href="{% url 'MP:myP' %}"><input type="button" value="마이페이지"></a>
+        <a href="{% url 'MP:myP' %}"><input type="button" value="마이페이지"></a>
         <a href="/account/myinfo"><input type="button" value="회원정보관리"></a>
          
       </div>
