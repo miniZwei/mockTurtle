@@ -17,6 +17,7 @@ class Quiz(models.Model):
     hint5_response = models.CharField(max_length=100)
     answer = models.CharField(max_length=1000)
     answer_keyword = models.CharField(max_length=200)
+    color = models.CharField(max_length=50)
     quiz_summary = models.CharField(max_length=500)
     quiz_image = models.CharField(max_length=200)
 

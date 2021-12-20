@@ -8,6 +8,7 @@ body {
   height: 100vh;
   background-size: 100% 100%;
   text-align: center;
+  background-color: black;
 }
 
 a:link { color: white; text-decoration: none;}
@@ -233,12 +234,7 @@ padding: 2%;
   }
 }
 
-#share{
-position: relative;
-bottom: 0%;
-margin-top: 32.5%;
-padding-right: 0.45%;
-}
+
 
 #modalLog { 
   position: absolute;
@@ -279,3 +275,11 @@ padding-right: 0.45%;
     overflow: hidden;
     pointer-events: none;
   }
+
+  
+#share{
+  position: absolute;
+  bottom: 3%;
+  left: 1%;
+
+}

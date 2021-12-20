@@ -14,7 +14,7 @@ def createAccount(request):
         first_name = request.POST.get('first_name');
         last_name = request.POST.get('last_name');
         email = request.POST.get('email');
-        level = 1
+        level = 1;
 
         User.objects.create_user(username, email, password, first_name=first_name, last_name=last_name, level=level)
         message = '<script> alert("가입이 완료되었습니다."); document.location.href="/account/login";</script>';

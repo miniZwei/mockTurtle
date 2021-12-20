@@ -47,11 +47,16 @@ def quiz(request, quiz_no):
             solved_quiz = SolvedQuiz()
             solved_quiz.username = request.user.username
             solved_quiz.quiz_no = num
+            
+        try:
             if solved_quiz.objects.get(username = request.user.username):
                 id = solved_quiz.id
-            solved_quiz.id = id
-            solved_quiz.save()
-            return HttpResponse(message)
+                solved_quiz.id = id
+                solved_quiz.save()
+                return HttpResponse(message)
+        except:
+          return HttpResponse(message)
+
         else:
             message = '<script> alert("오답입니다. 다시 도전해보세요"); document.location.href="/quiz/'
             message += quiz_no

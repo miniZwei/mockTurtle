@@ -115,7 +115,7 @@
 
 
   <div class="title"><label>Quiz {{ quiz.quiz_no }}</label></div>
-  <section class="quiz">
+  <section class="quiz" style="background-color: {{ quiz.color }}">
     <div class="quizImg"><img id="quizImg" src={{ quiz.quiz_image }} /></div>
     <div class="cont">
       <div id='quizTitle' class="quizTitle"><label>{{ quiz.quiz_title }}</label></div>
@@ -142,7 +142,7 @@
     {% endif %}
 
     <br /><br />
-    <button class="btn-2" id='foo' onclick="solution()">정 답</button><button id="hint" onclick="hintOn()" class="btn-2">힌
+    <button style="border: 3px solid {{ quiz.color }}" class="btn-2" id='foo' onclick="solution()">정 답</button><button style="border: 3px solid {{ quiz.color }}" id="hint" onclick="hintOn()" class="btn-2">힌
       트</button>
   </section>
   <ul id="hintUl" style="display: none;">
@@ -233,6 +233,5 @@
         src="{% static 'images/facebook.png'%}" width="40px" height="40px"></a>
     <a href="mailto:info@example.com?&subject=&cc=&bcc=&body=https://localhost:8000/quiz%0A"><img
         src="{% static 'images/mail.png'%}" width="40px" height="40px"></a>
-  </nav>
 </body>
 </html>
